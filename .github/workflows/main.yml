@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - "routing-[0-9]+\.[0-9]+\.[0-9]+"
+      - "routing-[0-9]+.[0-9]+.[0-9]+"
 
 jobs:
   release:
