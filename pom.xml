@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>routing</artifactId>
-    <version>2.0.4</version>
+    <version>2.0.5-SNAPSHOT</version>
 
     <description>Routing library based on the ECES framework</description>
     <url>https://github.com/AmoVanB/eces-routing</url>
