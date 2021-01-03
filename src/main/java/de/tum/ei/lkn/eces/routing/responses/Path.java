@@ -73,9 +73,9 @@ public class Path extends Response implements Iterable<Edge> {
 
 	/**
 	 * Creates a Path.
-	 * @param path Iterator over the Path. Both source -> destination and
-	 *             destination -> source Iterators are supported. The path
-	 *             will however always be created source -> destination.
+	 * @param path Iterator over the Path. Both source -&gt; destination and
+	 *             destination -&gt; source Iterators are supported. The path
+	 *             will however always be created source -&gt; destination.
 	 * @param cost Cost of the Path.
 	 * @param constraintsValues Values of the constraints for the Path.
 	 * @param parametersValues Values of the parameters for the Path.
@@ -139,9 +139,9 @@ public class Path extends Response implements Iterable<Edge> {
 	}
 	/**
 	 * Creates a Path.
-	 * @param path Iterator over the Path. Both source -> destination and
-	 *             destination -> source Iterators are supported. The path
-	 *             will however always be created source -> destination.
+	 * @param path Iterator over the Path. Both source -&gt; destination and
+	 *             destination -&gt; source Iterators are supported. The path
+	 *             will however always be created source -&gt; destination.
 	 * @param isForward specifies the direction of the iterator.
 	 * @param cost Cost of the Path.
 	 * @param constraintsValues Values of the constraints for the Path.

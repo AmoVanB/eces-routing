@@ -22,21 +22,21 @@ import java.util.List;
  *
  * The proxy able to:
  * - register and deregister a new flow in the network,
- * - determine resources availability at an EDGE (or simply access to the EDGE),
- * - compute the cost and constraints values of an EDGE,
+ * - determine resources availability at an edge (or simply access to the edge),
+ * - compute the cost and constraints values of an edge,
  * - compute the evolution of so-called parameters along a Path,
- * - optionally, compute a guess for the cost and constraints values to a NODE.
+ * - optionally, compute a guess for the cost and constraints values to a node.
  *
  * Three Proxy types are defined depending on what input the Proxy needs to
- * compute cost, constraints and resources availability at an EDGE: EdgeProxy,
+ * compute cost, constraints and resources availability at an edge: EdgeProxy,
  * PreviousEdgeProxy and PathProxy. These are documented in ProxyTypes.java.
  * The list of parameters for the methods of the Proxy hence depend on the Proxy
  * type. Therefore, concerned methods are defined only in the corresponding
  * children classes.
  *
  * Note that if the algorithm using the Proxy is backward, then a
- * previousEdgeProxy needs what is actually the next EDGE and a PathProxy what
- * is actually the Path followed by the Request *after* the current EDGE.
+ * previousEdgeProxy needs what is actually the next edge and a PathProxy what
+ * is actually the Path followed by the Request *after* the current edge.
  *
  * See: "Routing metrics depending on previous edges: The Mn taxonomy and its corresponding solutions" A Van Bemten,
  * JW Guck, CM Machuca, W Kellerer. 2018.
@@ -164,13 +164,13 @@ public abstract class Proxy implements Cloneable {
 		Edge oldEdge = null;
 		for(Edge edge : path) {
 			if(oldEdge == null && edge.getSource() != request.getSource())
-				return null; // The first EDGE does not start from the source node.
+				return null; // The first edge does not start from the source node.
 			if(oldEdge != null && oldEdge.getDestination() != edge.getSource())
 				return null; // Edges are not connected.
 
 			realParametersValues = this.wrapper.getNewParameters(headPathIterator, edge, realParametersValues, request, true);
 			if(!this.wrapper.hasAccess(headPathIterator, edge, realParametersValues, request, true))
-				return null; // Using an EDGE which it cannot.
+				return null; // Using an edge which it cannot.
 
 			realCost += this.wrapper.getCost(headPathIterator, edge, realParametersValues, request, true);
 			double newConstraints[] = this.wrapper.getConstraintsValues(headPathIterator, edge, realParametersValues, request, true);
@@ -206,10 +206,10 @@ public abstract class Proxy implements Cloneable {
 
 	/**
 	 * Creates a valid Path Object out of an array of Edges. Note that the
-	 * EDGE array is not checked (e.g. against loops, unconnected Edges, etc.).
+	 * edge array is not checked (e.g. against loops, unconnected Edges, etc.).
 	 * @param path Array of Edges.
 	 * @param request Request for which the Path object must be created.
-	 * @param isForward If the EDGE array is forward or backward.
+	 * @param isForward If the edge array is forward or backward.
 	 * @return A Path Object with appropriate cost, constraints values and
 	 *         parameters.
 	 */
@@ -219,10 +219,10 @@ public abstract class Proxy implements Cloneable {
 
 	/**
 	 * Creates a valid Path Object out of an iterable of Edges. Note that the
-	 * EDGE iterable not checked (e.g. against loops, unconnected Edges, etc.).
+	 * edge iterable not checked (e.g. against loops, unconnected Edges, etc.).
 	 * @param path The Edges.
 	 * @param request Request for which the Path object must be created.
-	 * @param isForward Whether the EDGE array is forward or backward.
+	 * @param isForward Whether the edge array is forward or backward.
 	 * @return A Path Object with appropriate cost, constraints values and
 	 *         parameters.
 	 */
@@ -401,10 +401,10 @@ public abstract class Proxy implements Cloneable {
 	/**
 	 * Computes a guess for the least possible cost of a Path from a source to a
 	 * destination.
-	 * By definition, a guess G must be such that 0 <= G <= C where C is the
-	 * actual least possibl cost of a Path from source to destination.
-	 * @param source Source NODE.
-	 * @param destination Destination NODE.
+	 * By definition, a guess G must be such that 0 &le; G &le; C where C is the
+	 * actual least possible cost of a Path from source to destination.
+	 * @param source Source node.
+	 * @param destination Destination node.
 	 * @return Computed guess.
 	 */
 	public double getGuessForCost(Node source, Node destination) {
@@ -414,12 +414,12 @@ public abstract class Proxy implements Cloneable {
 	/**
 	 * Computes a guess for the least possible value of a given constraint on a
 	 * Path from a source to a destination.
-	 * By definition, a guess G must be such that 0 <= G <= C where C is the
+	 * By definition, a guess G must be such that 0 &le; G &le; C where C is the
 	 * actual least possible value of the constraint on a Path from source to
 	 * destination.
 	 * @param index Index of the desired constraint.
-	 * @param source Source NODE.
-	 * @param destination Destination NODE.
+	 * @param source Source node.
+	 * @param destination Destination node.
 	 * @return Computed guess.
 	 */
 	public double getGuessForConstraint(int index, Node source, Node destination) {
@@ -427,10 +427,10 @@ public abstract class Proxy implements Cloneable {
 	}
 
 	/**
-	 * Gets the type of the Proxy (EDGE, PreviousEdge or Path).
+	 * Gets the type of the Proxy (Edge, PreviousEdge or Path).
 	 * The type might differ from the class of the object because PathProxies
 	 * are used to wrap around other proxies in order to reduce code redundancy.
-	 * For example, a PathProxy could be of EDGE type.
+	 * For example, a PathProxy could be of edge type.
 	 * @return Type of the Proxy (or wrapped Proxy).
 	 */
 	public abstract ProxyTypes getType();

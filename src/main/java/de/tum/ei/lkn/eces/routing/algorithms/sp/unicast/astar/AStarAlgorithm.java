@@ -96,7 +96,7 @@ public class AStarAlgorithm extends SPAlgorithm implements SolveUnicastRequest, 
 	 * Finds a route starting with a specific path.
 	 * @param request Request for which the route has to be found.
 	 * @param initialPath Initial starting path.
-	 * @return
+	 * @return the found path.
 	 */
 	public Path solveNoChecks(Request request, Iterable<Edge> initialPath) {
 		return upqa.computePath((UnicastRequest) request, initialPath);
