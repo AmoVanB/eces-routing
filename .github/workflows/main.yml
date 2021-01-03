@@ -1,0 +1,27 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "[0-9]+\.[0-9]+\.[0-9]+"
+
+jobs:
+  release:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Install Java and Maven
+        uses: actions/setup-java@v1
+        with:
+          java-version: 8
+
+      - name: Release Maven package
+        uses: samuelmeuli/action-maven-publish@v1.4.0
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          nexus_username: ${{ secrets.NEXUS_USERNAME }}
+          nexus_password: ${{ secrets.NEXUS_PASSWORD }}
+          maven_profiles: release

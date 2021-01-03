@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.tum.ei.lkn.eces</groupId>
+        <artifactId>master-pom</artifactId>
+        <version>1.0.21</version>
+    </parent>
+
+    <artifactId>routing</artifactId>
+    <version>2.0.4</version>
+
+    <description>Routing library based on the ECES framework</description>
+    <url>https://github.com/AmoVanB/eces-routing</url>
+
+    <scm>
+        <connection>scm:git:git://github.com/amovanb/eces-routing.git</connection>
+        <developerConnection>scm:git:ssh://github.com:amovanb/eces-routing.git</developerConnection>
+        <url>http://github.com/amovanb/eces-routing/tree/master</url>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20150729</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <version>3.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>de.tum.ei.lkn.eces</groupId>
+            <artifactId>core</artifactId>
+            <version>2.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.javatuples</groupId>
+            <artifactId>javatuples</artifactId>
+            <version>1.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.tum.ei.lkn.eces</groupId>
+            <artifactId>graph</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+    </dependencies>
+</project>
