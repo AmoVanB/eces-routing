@@ -1,6 +1,51 @@
 # Routing
 
-This project implements 30+ routing algorithms on top of the [graph](https://github.com/AmoVanB/eces-graph) library of the [ECES](https://github.com/AmoVanB/eces-core) framework.
+ This project implements 30+ routing algorithms on top of the [graph](https://github.com/AmoVanB/eces-graph) library of the [ECES](https://github.com/AmoVanB/eces-core) framework.
+ 
+ Most implemented algorithms were covered in the survey
+
+ [Jochen W. Guck, Amaury Van Bemten, Martin Reisslein, and Wolfgang Kellerer. *"Unicast QoS routing algorithms for SDN: A comprehensive survey and performance evaluation."* IEEE Communications Surveys & Tutorials 20, no. 1 (2018): 388-415](https://mediatum.ub.tum.de/doc/1420144/file.pdf).
+
+ Here below is a non-exhaustive list of implemented routing algorithms, grouped by category.
+
+ - Shortest path algorithms:
+    - [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+    - [Bellman-Ford](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm)
+    - [A\*](https://en.wikipedia.org/wiki/A*_search_algorithm)
+ - *k* shortest paths algorithms:
+    - [Yen](https://en.wikipedia.org/wiki/Yen%27s_algorithm)
+ - Constrained shortest path algorithms:
+    - [Constrained Bellman-Ford](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.408.3866&rep=rep1&type=pdf)
+    - [kDCBF](http://www-inst.eecs.berkeley.edu/~ee228a/fa03/228A03/papers/kdclc-infocom.pdf)
+    - [DCCR](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.83.270&rep=rep1&type=pdf)
+    - [DCR](https://www.sciencedirect.com/science/article/abs/pii/S0140366498001273)
+    - [DCUR](https://repository.lib.ncsu.edu/bitstream/handle/1840.4/946/TR_1996_26.pdf?sequence=1&isAllowed=y)
+    - [IAK](https://ieeexplore.ieee.org/abstract/document/726352/)
+    - [LARAC](https://web.cs.elte.hu/~alpar/publications/proc/Infocom2001-LARAC.pdf)
+    - [LARACGC](https://onlinelibrary.wiley.com/doi/abs/10.1002/net.3230100403)
+    - [kLARAC](http://www-inst.eecs.berkeley.edu/~ee228a/fa03/228A03/papers/kdclc-infocom.pdf)
+    - [NR\_DCLC](http://www.academia.edu/download/44373000/Performance_evaluation_of_delay-constrai20160403-26688-1v5a7ok.pdf)
+    - [SCRC](https://estudogeral.sib.uc.pt/bitstream/10316/3958/1/filedfa98392e75f428794de2eb2e8247e64.pdf)
+    - [SF-DCLC](http://www.cnsr.ictas.vt.edu/publication/DCLC_ComNet.pdf)
+    - [SSR+DCCR](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.83.270&rep=rep1&type=pdf)
+  - Multi-constrained shortest path algorithms:
+    - [A\*Prune](http://suraj.lums.edu.pk/~te/cspf/A_Prune_AnAlgorithmf.pdf)
+    - [E\_MCOP](http://www.academia.edu/download/4657737/e85-b_12_2838.pdf)
+    - [(k)H\_MCOP](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.90.6897&rep=rep1&type=pdf)
+    - [MH\_MCOP](http://www.academia.edu/download/4657737/e85-b_12_2838.pdf)
+  - Multi-constrained path algorithms:
+    - [E\_MCP](http://www.academia.edu/download/4657737/e85-b_12_2838.pdf)
+    - [H\_MCP](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.90.6897&rep=rep1&type=pdf)
+    
+ The algorithms proposed in 
+
+ - [Amaury Van Bemten, Jochen W. Guck, Carmen Mas Machuca, and Wolfgang Kellerer. *"Routing metrics depending on previous edges: The Mn taxonomy and its corresponding solutions."* In 2018 IEEE International Conference on Communications (ICC), pp. 1-7. IEEE, 2018](https://arxiv.org/pdf/1805.11586;Routing),
+ - [Amaury Van Bemten, Jochen W. Guck, Petra Vizarreta, Carmen Mas Machuca, and Wolfgang Kellerer. *"LARAC-SN and Mole in the Hole: Enabling Routing through Service Function Chains."* In 2018 4th IEEE Conference on Network Softwarization and Workshops (NetSoft), pp. 298-302. IEEE, 2018](https://mediatum.ub.tum.de/doc/1437432/file.pdf), and
+ - [Amaury Van Bemten, Jochen W. Guck, Carmen Mas Machuca, and Wolfgang Kellerer. *"Bounded Dijkstra (BD): Search Space Reduction for Expediting Shortest Path Subroutines."* arXiv preprint arXiv:1903.00436 (2019)](https://arxiv.org/pdf/1903.00436)
+
+ are also implemented.
+
+ These references are the best place for getting a clear understanding of the different algorithms.
 
 ## Usage
 
@@ -79,19 +124,3 @@ Registration and deregistration is done through the proxy by the routing system 
 
 By listening to path attachment events, the path list system keeps track of all the paths that have been found per graph. 
 It attaches a path list (`PathList.java`) to the entity of each graph.
- 
-## Algorithms and References
-
- Most algorithms algorithms implemented here were covered in the survey
-
- [Jochen W. Guck, Amaury Van Bemten, Martin Reisslein, and Wolfgang Kellerer. *"Unicast QoS routing algorithms for SDN: A comprehensive survey and performance evaluation."* IEEE Communications Surveys & Tutorials 20, no. 1 (2018): 388-415](https://mediatum.ub.tum.de/doc/1420144/file.pdf).
-
- The algorithms proposed in 
-
- - [Amaury Van Bemten, Jochen W. Guck, Carmen Mas Machuca, and Wolfgang Kellerer. *"Routing metrics depending on previous edges: The Mn taxonomy and its corresponding solutions."* In 2018 IEEE International Conference on Communications (ICC), pp. 1-7. IEEE, 2018](https://arxiv.org/pdf/1805.11586;Routing),
- - [Amaury Van Bemten, Jochen W. Guck, Petra Vizarreta, Carmen Mas Machuca, and Wolfgang Kellerer. *"LARAC-SN and Mole in the Hole: Enabling Routing through Service Function Chains."* In 2018 4th IEEE Conference on Network Softwarization and Workshops (NetSoft), pp. 298-302. IEEE, 2018](https://mediatum.ub.tum.de/doc/1437432/file.pdf), and
- - [Amaury Van Bemten, Jochen W. Guck, Carmen Mas Machuca, and Wolfgang Kellerer. *"Bounded Dijkstra (BD): Search Space Reduction for Expediting Shortest Path Subroutines."* arXiv preprint arXiv:1903.00436 (2019)](https://arxiv.org/pdf/1903.00436)
-
- are also implemented.
-
- These references are the best place for getting a clear understanding of the different algorithms.
