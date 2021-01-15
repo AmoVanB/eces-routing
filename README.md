@@ -6,6 +6,8 @@
 
  [Jochen W. Guck, Amaury Van Bemten, Martin Reisslein, and Wolfgang Kellerer. *"Unicast QoS routing algorithms for SDN: A comprehensive survey and performance evaluation."* IEEE Communications Surveys & Tutorials 20, no. 1 (2018): 388-415](https://mediatum.ub.tum.de/doc/1420144/file.pdf).
 
+The algorithms implemented in this repository have been subject to different evaluation campaigns whose results can be visualized on an interactive web interface: https://lora.lkn.ei.tum.de.
+
  Here below is a non-exhaustive list of implemented routing algorithms, grouped by category.
 
  - Shortest path algorithms:
